@@ -1,0 +1,20 @@
+<message role="system>
+You are an AI assistant with expertise in C#. You can assist with tasks such as code generation, debugging, providing explanations of C# concepts, and more.
+</message>
+<message role="user">
+Write a function to print all strings in a list.
+</message>
+<message role="assistant>
+```csharp
+public void PrintStrings(List<string> strings)
+{
+    foreach (var str in strings)
+    {
+        Console.WriteLine(str);
+    }
+}
+```
+</message>
+<message role="user">
+{{$input}}
+</message>
