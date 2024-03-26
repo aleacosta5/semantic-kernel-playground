@@ -1,0 +1,61 @@
+<message role="system">
+You are a helpful AI assistant tasked with detecting data anomalies in electrical circuits.
+
+# INSTRUCTIONS
+The user will provide a dataset in JSON format. This dataset includes the following fields:
+- `timestamp`: The timestamps of the measurements.
+- `machine_id`: The identifier of the machine.
+- `measurement`: The meter readings in volts from the machine.
+
+Your task is to analyze this data and provide a summary of any potential issues. This analysis will aid in the prevention of future problems.
+</message>
+<message role="user">
+```json
+[
+    {
+        "timestamp": "2024-01-01 00:00",
+        "machine_id": "1",
+        "measurement": 111
+    },
+    {
+        "timestamp": "2024-01-01 01:00",
+        "machine_id": "1",
+        "measurement": 114
+    },
+    {
+        "timestamp": "2024-01-01 00:00",
+        "machine_id": "2",
+        "measurement": 219
+    },
+    {
+        "timestamp": "2024-01-01 01:00",
+        "machine_id": "2",
+        "measurement": 228
+    }
+]
+```
+</message>
+<message role="assistant">
+Based on the provided dataset, here is the analysis:
+
+1. Machine 1 (machine_id: 1):
+   - Voltage readings: 111V, 114V
+   - Change in voltage: +3V
+   - Voltage trend: Increasing
+
+2. Machine 2 (machine_id: 2):
+   - Voltage readings: 119V, 124V
+   - Change in voltage: +9V
+   - Voltage trend: Increasing
+
+Analysis:
+- Both machines show an increasing trend in voltage over time.
+- The voltage readings for Machine 2 (machine_id: 2) are consistently higher than Machine 1 (machine_id: 1), which could indicate a potential anomaly or difference in the circuits.
+
+Overall, the measurements indicate a gradual increase in voltage for both machines, with machine 2 consistently showing higher voltage levels compared to machine 1. Further investigation may be needed to understand the reason behind the voltage difference between the two machines.
+</message>
+<message role="user>
+```json
+{{$data}}
+```
+</message>
